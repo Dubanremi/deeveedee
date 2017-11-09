@@ -1,0 +1,33 @@
+<html>
+
+<div class="panel panel-default">
+<h1 class="panel-heading text-center" style="font-family : Samarkan;color : #70146a;">Liste DVD </h1>
+
+<table class="table table-bordered" style="background: linear-gradient( #97ecdb, #ffffff);">
+            <thead>
+              <tr>
+
+                <th  style="font-family : Samarkan;">TITRE</th>
+                <th  style="font-family : Samarkan;">AUTEUR</th>
+                <th  style="font-family : Samarkan;">ANNEE</th>
+                <th  style="font-family : Samarkan;">CATEGORIE</th>
+                <th  style="text-align:center"><i class="glyphicon glyphicon-play"></i></th>
+
+              </tr>
+            </thead>
+        <?php foreach ($query as $row): ?>
+            <tr>
+
+                <?= '<td><a href="'.site_url('louer/view/'.$row->numD).'" style="font-family : Comfortaa;color : #879528;">'.$row->titreD.'</a></td>'; ?>
+                <?= '<td style="font-family : Comfortaa;color : #879528; ">'.$row->auteurD.'</td>'; ?>
+                <?= '<td style="font-family : Comfortaa;color : #879528;">'.$row->annéeD.'</td>'; ?>
+                <?= '<td style="font-family : Comfortaa;color : #879528;">'.$row->catégorieD.'</td>'; ?>
+               <?= '<th class="text-center"><a class="btn btn-warning" href="'.site_url('louer/add/'.$row->numD).'"> <i class="glyphicon glyphicon-pencil"></i> </a> / ';?>
+                <?= '<a class="btn btn-danger"  href="'.site_url('louer/delete/'.$row->numD).'"><i class="glyphicon glyphicon-trash"></i> </a> </td></tr>';?>
+
+            </tr>
+          </div>
+        <?php endforeach; ?>
+<?= '<td><a class="btn btn-primary center" href="'.site_url('louer/add/').'">Ajouter</a>  ';?>
+
+        </table>
